@@ -13,12 +13,8 @@ if !has('conceal') || &enc != 'utf-8'
   finish
 endif
 
-if !exists('g:clojure_conceal_extras')
-  syntax keyword clojureConcealLambda defn conceal cchar=λ
-else
-  syntax keyword clojureConcealLambda defn defn- fn letfn conceal cchar=λ
-  syntax match clojureConcealLambda /\v#\(/me=e-1 conceal cchar=λ
-endif
+syntax keyword clojureConcealLambda fn conceal cchar=λ
+syntax match clojureConcealLambda /\v#\(/me=e-1 conceal cchar=λ
 
 hi link clojureConcealLambda Define
 hi! link Conceal Define
